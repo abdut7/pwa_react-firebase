@@ -57,7 +57,8 @@ class ResponsiveDrawer extends React.Component {
     state = {
         mobileOpen: false,
         drawerItems:['Student Zone', 'Parent Zone', 'Teachers Zone', 'Notifications'],
-        icons:[<InboxIcon /> ,<InboxIcon /> ,<InboxIcon /> ,<InboxIcon /> ]
+        icons:[<InboxIcon /> ,<InboxIcon /> ,<InboxIcon /> ,<InboxIcon /> ],
+        linkto:['/signin','/xamapply','/signin','/xamapply']
     };
 
     handleDrawerToggle = () => {
@@ -74,7 +75,7 @@ class ResponsiveDrawer extends React.Component {
                 <List>
 
                     {this.state.drawerItems.map((text, index) => (
-                        <Link to="/signin">
+                        <Link to={this.state.linkto[index]}>
                         <ListItem button key={text}>
                             <ListItemIcon>{this.state.icons[index]}</ListItemIcon>
                             <ListItemText primary={text} />
@@ -142,7 +143,7 @@ class ResponsiveDrawer extends React.Component {
                 </nav>
                 <main className={classes.content}>
                     <div className={classes.toolbar} />
-<Home/>
+
                 </main>
             </div>
         );
