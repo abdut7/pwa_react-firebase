@@ -99,7 +99,7 @@ class Checkout extends React.Component {
                 <AppBar position="absolute" color="default" className={classes.appBar}>
                     <Toolbar>
                         <Typography variant="h6" color="inherit" noWrap>
-                            Company name
+                          CONTROLLER OF EXAMINATION,FAROOK COLLEGE(AUTONOMOUS) CALICUT
                         </Typography>
                     </Toolbar>
                 </AppBar>

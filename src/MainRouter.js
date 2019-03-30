@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Route, Switch} from 'react-router-dom'
 import ResponsiveDrawer from './ResponsiveDrawer'
-
+import Home from './Home'
 import Signin from './Signin'
 import  ExamApplication from  './ExamApplication'
 class MainRouter extends Component {
@@ -17,13 +17,14 @@ class MainRouter extends Component {
         return (<div>
             <ResponsiveDrawer/>
             <Switch>
-                {/*<Route exact path="/" component={Home}/>*/}
+                <Route exact path="/" component={Home}/>
                 {/*<Route path="/users" component={Users}/>*/}
                 <Route path="/xamapply" component={ExamApplication}/>
                 <Route path="/signin" component={Signin}/>
                 {/*<PrivateRoute path="/user/edit/:userId" component={EditProfile}/>*/}
                 {/*<Route path="/user/:userId" component={Profile}/>*/}
             </Switch>
+
         </div>)
     }
 }

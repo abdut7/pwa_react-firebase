@@ -35,19 +35,16 @@ class CheckboxesGroup extends React.Component {
 
 
     };
-    updateState() {
-        console.log("clicked")
-        this.setState({data: 'Data updated...'})
-    }
+
     handleChange = name => event => {
-      console.log([name])
+      console.log(name)
 
         this.setState({ [name]: event.target.checked });
     };
 
     render() {
         const { classes } = this.props;
-        //const { paper1, jason, antoine } = this.state;
+        const { paper1, jason, antoine } = this.state;
         //const error = [paper1, jason, antoine].filter(v => v).length !== 2;
 
         return (
