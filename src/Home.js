@@ -11,10 +11,28 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
+import Achive from './images/achivements.png'
+import Admision from './images/adm1.png'
+import Programm from './images/icon-06.jpg'
+import IQAc from './images/iqac.png'
+import  Salient from './images/Salient-feature.png'
+import About from './images/abt-us.png'
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import { Link } from '@material-ui/core';
 
 const styles = theme => ({
+    main: {
+        width: 'auto',
+        display: 'block', // Fix IE 11 issue.
+        marginLeft: theme.spacing.unit * 3,
+        marginRight: theme.spacing.unit * 3,
+        [theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
+            width: 400,
+            marginLeft: 'auto',
+            marginRight: 'auto',
+        },
+    },
     appBar: {
         position: 'relative',
     },
@@ -62,37 +80,45 @@ const styles = theme => ({
     },
 });
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+const cards = [0,1, 2, 3, ];
+const contents=['Established as a first grade college in 1948, Farook College underwent an exponential growth in terms of factors such as...',
+               'Admission 2019 – 20:  Admission Process to Various UG and PG Programmes Commenced. For online submission: visit  www.farookcollege.in   ',
+                'Farook College (Autonomous) is today the biggest residential Post Graduate Institution under the Calicut University. The college has been re-accredited...',
+                 'In pursuance of its Action Plan for performance evaluation, assessment and accreditation and quality up-gradation of institutions of higher education,...' ,
+                 'The college that attained commendable achievements in various categories during the last years has unique salient features.',
+                 'Dedicated to the cause of social uplift through education, Farook College stands unique among the educational institutions of Kerala.  In... '];
+const headofcard=['Achievements','Admission','Programmes','IQAC','Salient features','About Us'];
+const imagesc=[Achive,Admision,Programm,IQAc,Salient,About]
 
-function Album(props) {
+    function Album(props) {
     const { classes } = props;
 
     return (
         <React.Fragment>
             <CssBaseline />
 
-            <main>
+            <main className={classes.main}>
                 {/* Hero unit */}
                 <div className={classes.heroUnit}>
                     <div className={classes.heroContent}>
-                        <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-                            FAROOK COLLEGE(AUTONUMOUS) CALICUT
+                        <Typography component="p" variant="h2" align="center" color="textPrimary" gutterBottom>
+                            FAROOK COLLEGE CALICUT
                         </Typography>
                         <Typography variant="h6" align="center" color="textSecondary" paragraph>
-                            Something short and leading about the collection below—its contents, the creator, etc.
-                            Make it short and sweet, but not too short so folks don&apos;t simply skip over it
-                            entirely.
+                            Farook College, today,is the biggest residential postgraduate institution in Kerala offering 20 undergraduate, 15 postgraduate and Eight Ph.D. programmes.
                         </Typography>
                         <div className={classes.heroButtons}>
                             <Grid container spacing={16} justify="center">
                                 <Grid item>
-                                    <Button variant="contained" color="primary">
-                                        Main call to action
-                                    </Button>
+                                    <Link>
+                                        <Button variant="contained" color="primary">
+                                            Student Zone
+                                        </Button>
+                                    </Link>
                                 </Grid>
                                 <Grid item>
                                     <Button variant="outlined" color="primary">
-                                        Secondary action
+                                        Contact Us
                                     </Button>
                                 </Grid>
                             </Grid>
@@ -107,24 +133,23 @@ function Album(props) {
                                 <Card className={classes.card}>
                                     <CardMedia
                                         className={classes.cardMedia}
-                                        image="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22288%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20288%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_164edaf95ee%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_164edaf95ee%22%3E%3Crect%20width%3D%22288%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2296.32500076293945%22%20y%3D%22118.8%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" // eslint-disable-line max-len
+                                        src={imagesc[card]} // eslint-disable-line max-len
+                                       component={"img"}
                                         title="Image title"
                                     />
                                     <CardContent className={classes.cardContent}>
                                         <Typography gutterBottom variant="h5" component="h2">
-                                            Heading
+                                            {headofcard[card]}
                                         </Typography>
                                         <Typography>
-                                            This is a media card. You can use this section to describe the content.
+                                            {contents[card]}
                                         </Typography>
                                     </CardContent>
                                     <CardActions>
                                         <Button size="small" color="primary">
-                                            View
+                                            View More
                                         </Button>
-                                        <Button size="small" color="primary">
-                                            Edit
-                                        </Button>
+
                                     </CardActions>
                                 </Card>
                             </Grid>
@@ -135,7 +160,7 @@ function Album(props) {
             {/* Footer */}
             <footer className={classes.footer}>
                 <Typography variant="h6" align="center" gutterBottom>
-                    Footer
+
                 </Typography>
                 <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
                     Something here to give the footer a purpose!
@@ -149,5 +174,6 @@ function Album(props) {
 Album.propTypes = {
     classes: PropTypes.object.isRequired,
 };
+
 
 export default withStyles(styles)(Album);

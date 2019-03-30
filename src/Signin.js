@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
+import  fire from './config/firbase'
 
 const styles = theme => ({
     main: {
@@ -45,8 +46,36 @@ const styles = theme => ({
     },
 });
 
-function SignIn(props) {
-    const { classes } = props;
+class SignIn extends React.Component{
+
+    constructor(props) {
+        super(props);
+        this.state = {value: '',
+            regno:'',
+            password:''
+        };
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handlePasswordChange=this.handlePasswordChange.bind(this)
+    }
+    handleChange(event) {
+        this.setState({value: event.target.value});
+
+    }
+
+    handleSubmit(event) {
+        alert('A name was submitted: ' + this.state.value+this.state.password);
+        event.preventDefault();
+    }
+    handlePasswordChange(e) {
+        this.setState({password: e.target.value});
+    }
+    render() {
+
+
+    const { classes } = this.props;
+
 
     return (
         <main className={classes.main}>
@@ -60,12 +89,12 @@ function SignIn(props) {
                 </Typography>
                 <form className={classes.form}>
                     <FormControl margin="normal" required fullWidth>
-                        <InputLabel htmlFor="email">Email Address</InputLabel>
-                        <Input id="email" name="email" autoComplete="email" autoFocus />
+                        <InputLabel htmlFor="text">Register Number</InputLabel>
+                        <Input type="text" value={this.state.value} onChange={this.handleChange} autoFocus />
                     </FormControl>
                     <FormControl margin="normal" required fullWidth>
                         <InputLabel htmlFor="password">Password</InputLabel>
-                        <Input name="password" type="password" id="password" autoComplete="current-password" />
+                        <Input name="password" type="password" id="password" autoComplete="current-password" value={this.state.password} onChange={this.handlePasswordChange}/>
                     </FormControl>
                     <FormControlLabel
                         control={<Checkbox value="remember" color="primary" />}
@@ -76,6 +105,7 @@ function SignIn(props) {
                         fullWidth
                         variant="contained"
                         color="primary"
+                       onClick={this.handleSubmit}
                         className={classes.submit}
                     >
                         Sign in
@@ -84,6 +114,7 @@ function SignIn(props) {
             </Paper>
         </main>
     );
+    }
 }
 
 SignIn.propTypes = {

@@ -7,6 +7,14 @@ import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
+import StudentIcon from '@material-ui/icons/Face';
+import ParentIcon from '@material-ui/icons/Group';
+import TechersIcon from '@material-ui/icons/FaceTwoTone';
+import Notification from '@material-ui/icons/NotificationImportant';
+//import SigninIcon from '@material-ui/icons/';
+import ExamApplyIcon from '@material-ui/icons/SettingsApplications';
+import HAlticketIcon from '@material-ui/icons/';
+import HomeIcon from '@material-ui/icons/Home';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -56,9 +64,9 @@ const styles = theme => ({
 class ResponsiveDrawer extends React.Component {
     state = {
         mobileOpen: false,
-        drawerItems:['Student Zone', 'Parent Zone', 'Teachers Zone', 'Notifications'],
-        icons:[<InboxIcon /> ,<InboxIcon /> ,<InboxIcon /> ,<InboxIcon /> ],
-        linkto:['/signin','/xamapply','/signin','/xamapply']
+        drawerItems:['Home','Student Zone', 'Parent Zone', 'Teachers Zone', 'Notifications'],
+        icons:[<HomeIcon/>,<StudentIcon /> ,<ParentIcon/> ,<TechersIcon /> ,<Notification/> ],
+        linkto:['/','/signin','/xamapply','/signin','/xamapply']
     };
 
     handleDrawerToggle = () => {

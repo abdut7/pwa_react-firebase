@@ -7,6 +7,7 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import Checkbox from '@material-ui/core/Checkbox';
+import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
     main: {
@@ -66,6 +67,16 @@ class CheckboxesGroup extends React.Component {
 
                     </FormGroup>
                     <FormHelperText>Select Papers u wanted{this.state.paperstatus[4]}</FormHelperText>
+                    <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        color="primary"
+
+                        className={classes.submit}
+                    >
+                      SAVE
+                    </Button>
                 </FormControl>
 
             </div>
