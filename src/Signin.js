@@ -52,7 +52,8 @@ class SignIn extends React.Component{
         super(props);
         this.state = {value: '',
             regno:'',
-            password:''
+            password:'',
+
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -65,7 +66,22 @@ class SignIn extends React.Component{
     }
 
     handleSubmit(event) {
-        alert('A name was submitted: ' + this.state.value+this.state.password);
+
+var p=''
+        const userRef=fire.database().ref(this.state.value);
+        userRef.child('password').once( 'value').then(  (snapshot)=>{
+            p=snapshot.val();
+
+                 if(this.state.password==p){
+                     alert('Log in success ' );
+                     sessionStorage.setItem('loginstatus', 1);
+                 }else{
+                     alert('UserName or Password Incorrect' );
+                 }
+        })
+
+
+
         event.preventDefault();
     }
     handlePasswordChange(e) {
@@ -85,7 +101,7 @@ class SignIn extends React.Component{
                     <LockOutlinedIcon />
                 </Avatar>
                 <Typography component="h1" variant="h5">
-                    Sign in
+                   Student Sign in
                 </Typography>
                 <form className={classes.form}>
                     <FormControl margin="normal" required fullWidth>

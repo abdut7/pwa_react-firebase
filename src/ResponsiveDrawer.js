@@ -26,6 +26,7 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import {Link, withRouter} from 'react-router-dom'
 import Home from './Home'
+import  Auth from './config/authCheck'
 
 const drawerWidth = 240;
 
@@ -63,10 +64,11 @@ const styles = theme => ({
 
 class ResponsiveDrawer extends React.Component {
     state = {
+        loginStatus: localStorage.getItem('loginstatus'),
         mobileOpen: false,
         drawerItems:['Home','Student Zone', 'Parent Zone', 'Teachers Zone', 'Notifications'],
         icons:[<HomeIcon/>,<StudentIcon /> ,<ParentIcon/> ,<TechersIcon /> ,<Notification/> ],
-        linkto:['/','/signin','/xamapply','/signin','/xamapply']
+        linkto:['/','/signin','/xamapply','/signin','/results']
     };
 
     handleDrawerToggle = () => {
@@ -80,9 +82,12 @@ class ResponsiveDrawer extends React.Component {
             <div>
                 <div className={classes.toolbar} />
                 <Divider />
+                {Auth.isAuth()&&(
                 <List>
 
-                    {this.state.drawerItems.map((text, index) => (
+                    {
+
+                        this.state.drawerItems.map((text, index) => (
                         <Link to={this.state.linkto[index]}>
                         <ListItem button key={text}>
                             <ListItemIcon>{this.state.icons[index]}</ListItemIcon>
@@ -91,15 +96,19 @@ class ResponsiveDrawer extends React.Component {
                         </Link>
                     ))}
                 </List>
+                )}
                 <Divider />
-                <List>
-                    {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItem>
-                    ))}
-                </List>
+                {
+
+
+                    /*<List>*/}
+                    {/*{['All mail', 'Trash', 'Spam'].map((text, index) => (*/}
+                        {/*<ListItem button key={text}>*/}
+                            {/*<ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>*/}
+                            {/*<ListItemText primary={text} />*/}
+                        {/*</ListItem>*/}
+                    {/*))}*/}
+                {/*</List>*/}
             </div>
         );
 

@@ -31,7 +31,7 @@ const styles = theme => ({
 
 class CheckboxesGroup extends React.Component {
     state = {
-        papers:['os','network','ss','android','moiu'],
+        papers:['COMPUTER ORGANISATION AND ARCHITECTURE','JAVA PROGRAMMING','WEB PROGRAMMING USING PHP','PRINCIPLES AND SOFTWARE ENGINEERING','NON CONVENTIONAL ENERGY SOURCES'],
         paperstatus:[],
 
 
@@ -51,7 +51,7 @@ class CheckboxesGroup extends React.Component {
         return (
             <div className={classes.main}>
                 <FormControl component="fieldset" className={classes.formControl}>
-                    <FormLabel component="legend">Assign responsibility</FormLabel>
+                    <FormLabel component="legend">Select Papers </FormLabel>
                     <FormGroup>
 
 
@@ -66,7 +66,7 @@ class CheckboxesGroup extends React.Component {
 
 
                     </FormGroup>
-                    <FormHelperText>Select Papers u wanted{this.state.paperstatus[4]}</FormHelperText>
+                    <FormHelperText>Select Papers {this.state.paperstatus[4]}</FormHelperText>
                     <Button
                         type="submit"
                         fullWidth
