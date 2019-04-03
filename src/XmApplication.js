@@ -8,6 +8,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
+import RadiobuttonsComponent from './RadiobuttonComponent'
 
 const styles = theme => ({
     main: {
@@ -50,6 +51,7 @@ class CheckboxesGroup extends React.Component {
 
         return (
             <div className={classes.main}>
+            <RadiobuttonsComponent/>
                 <FormControl component="fieldset" className={classes.formControl}>
                     <FormLabel component="legend">Select Papers </FormLabel>
                     <FormGroup>
