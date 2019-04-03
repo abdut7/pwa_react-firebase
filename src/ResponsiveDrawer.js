@@ -13,7 +13,7 @@ import TechersIcon from '@material-ui/icons/FaceTwoTone';
 import Notification from '@material-ui/icons/NotificationImportant';
 //import SigninIcon from '@material-ui/icons/';
 import ExamApplyIcon from '@material-ui/icons/SettingsApplications';
-import HAlticketIcon from '@material-ui/icons/';
+import HAlticketIcon from '@material-ui/icons/Dock';
 import HomeIcon from '@material-ui/icons/Home';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -67,6 +67,8 @@ class ResponsiveDrawer extends React.Component {
         loginStatus: localStorage.getItem('loginstatus'),
         mobileOpen: false,
         drawerItems:['Home','Student Zone', 'Parent Zone', 'Teachers Zone', 'Notifications'],
+        loginItems:['Home','Exame Apply','Result','Hall Ticket','Logout'],
+        loginicons:[<HomeIcon/>,<ExamApplyIcon/>,<InboxIcon/>,<HAlticketIcon/>,<MailIcon/>],
         icons:[<HomeIcon/>,<StudentIcon /> ,<ParentIcon/> ,<TechersIcon /> ,<Notification/> ],
         linkto:['/','/signin','/xamapply','/signin','/results']
     };
@@ -83,6 +85,21 @@ class ResponsiveDrawer extends React.Component {
                 <div className={classes.toolbar} />
                 <Divider />
                 {Auth.isAuth()&&(
+                <List>
+
+                    {
+
+                        this.state.loginItems.map((text, index) => (
+                        <Link to={this.state.linkto[index]}>
+                        <ListItem button key={text}>
+                            <ListItemIcon>{this.state.icons[index]}</ListItemIcon>
+                            <ListItemText primary={text} />
+                        </ListItem>
+                        </Link>
+                    ))}
+                </List>
+                )}
+                 {!Auth.isAuth()&&(
                 <List>
 
                     {
