@@ -67,16 +67,20 @@ class ResponsiveDrawer extends React.Component {
         loginStatus: localStorage.getItem('loginstatus'),
         mobileOpen: false,
         drawerItems:['Home','Student Zone', 'Parent Zone', 'Teachers Zone', 'Notifications'],
-        loginItems:['Home','Exame Apply','Result','Hall Ticket','Logout'],
+        loginItems:['Home','Exam Apply','Result','Hall Ticket'],
         loginicons:[<HomeIcon/>,<ExamApplyIcon/>,<InboxIcon/>,<HAlticketIcon/>,<MailIcon/>],
         icons:[<HomeIcon/>,<StudentIcon /> ,<ParentIcon/> ,<TechersIcon /> ,<Notification/> ],
-        linkto:['/','/signin','/xamapply','/signin','/results']
+        linkto:['/','/signin','/signin','/signin','/notification'],
+        logingrouter:['/','/xamapply','/result','/hallticket']
     };
 
     handleDrawerToggle = () => {
         this.setState(state => ({ mobileOpen: !state.mobileOpen }));
     };
-
+    handleClick = event => {
+        sessionStorage.setItem('loginstatus',0)
+        alert("Log out");
+      }
     render() {
         const { classes, theme } = this.props;
 
@@ -90,13 +94,19 @@ class ResponsiveDrawer extends React.Component {
                     {
 
                         this.state.loginItems.map((text, index) => (
-                        <Link to={this.state.linkto[index]}>
+                        <Link to={this.state.logingrouter[index]}>
                         <ListItem button key={text}>
                             <ListItemIcon>{this.state.icons[index]}</ListItemIcon>
                             <ListItemText primary={text} />
                         </ListItem>
                         </Link>
                     ))}
+                    <Link onClick={this.handleClick.bind(this)}>
+                        <ListItem >
+                            <ListItemIcon><MailIcon/></ListItemIcon>
+                            <ListItemText>Log Out</ListItemText>
+                        </ListItem>
+                        </Link>
                 </List>
                 )}
                  {!Auth.isAuth()&&(

@@ -119,11 +119,10 @@ class Checkout extends React.Component {
                             {activeStep === steps.length ? (
                                 <React.Fragment>
                                     <Typography variant="h5" gutterBottom>
-                                        Thank you for your order.
+                                       Payment Mode Successful
                                     </Typography>
                                     <Typography variant="subtitle1">
-                                        Your order number is #2001539. We have emailed your order confirmation, and will
-                                        send you an update when your order has shipped.
+                                        Successfully Applied for The Exam
                                     </Typography>
                                 </React.Fragment>
                             ) : (
@@ -141,7 +140,7 @@ class Checkout extends React.Component {
                                             onClick={this.handleNext}
                                             className={classes.button}
                                         >
-                                            {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
+                                            {activeStep === steps.length - 1 ? 'submit' : 'Next'}
                                         </Button>
                                     </div>
                                 </React.Fragment>

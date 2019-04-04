@@ -22,11 +22,12 @@ const styles = theme => ({
 
 class RadioButtonsGroup extends React.Component {
   state = {
-    value: 'female',
+    value: 'sem1',
   };
 
   handleChange = event => {
     this.setState({ value: event.target.value });
+    
   };
 
   render() {

@@ -38,10 +38,10 @@ function Review(props) {
     const { classes } = props;
     return (
         <React.Fragment>
-            <Typography variant="h6" gutterBottom>
+            {/* <Typography variant="h6" gutterBottom>
                 Order summary
-            </Typography>
-            <List disablePadding>
+            </Typography> */}
+            {/* <List disablePadding>
                 {products.map(product => (
                     <ListItem className={classes.listItem} key={product.name}>
                         <ListItemText primary={product.name} secondary={product.desc} />
@@ -54,8 +54,8 @@ function Review(props) {
                         $34.06
                     </Typography>
                 </ListItem>
-            </List>
-            <Grid container spacing={16}>
+            </List> */}
+            {/* <Grid container spacing={16}>
                 <Grid item xs={12} sm={6}>
                     <Typography variant="h6" gutterBottom className={classes.title}>
                         Shipping
@@ -80,7 +80,7 @@ function Review(props) {
                         ))}
                     </Grid>
                 </Grid>
-            </Grid>
+            </Grid> */}
         </React.Fragment>
     );
 }

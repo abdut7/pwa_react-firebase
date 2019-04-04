@@ -9,6 +9,7 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
 import RadiobuttonsComponent from './RadiobuttonComponent'
+import  fire from './config/firbase'
 
 const styles = theme => ({
     main: {
@@ -34,6 +35,7 @@ class CheckboxesGroup extends React.Component {
     state = {
         papers:['COMPUTER ORGANISATION AND ARCHITECTURE','JAVA PROGRAMMING','WEB PROGRAMMING USING PHP','PRINCIPLES AND SOFTWARE ENGINEERING','NON CONVENTIONAL ENERGY SOURCES'],
         paperstatus:[],
+        sem:''
 
 
     };
@@ -43,6 +45,26 @@ class CheckboxesGroup extends React.Component {
 
         this.setState({ [name]: event.target.checked });
     };
+   sendToFirbase=send=>event=> {
+       const rgn=sessionStorage.getItem('regno');
+       const sem='sem1'
+       const examname='see2015regular'
+
+    
+    const a = fire.database().ref(rgn+'/Exams'+'/'+sem+'/'+examname);
+    const data={
+        papper1:this.state.papers[0],
+        papper2:this.state.papers[1],
+        papper3:this.state.papers[2],
+        papper4:this.state.papers[3],
+        papper5:this.state.papers[4],
+        papper6:this.state.papers[5],
+    }
+    a.set(this.state.papers).then(()=>{alert("Exam application Successfully saves click next for payment")});
+    this.setState();
+    
+       
+     }
 
     render() {
         const { classes } = this.props;
@@ -74,6 +96,7 @@ class CheckboxesGroup extends React.Component {
                         fullWidth
                         variant="contained"
                         color="primary"
+                        onClick={this.sendToFirbase()}
 
                         className={classes.submit}
                     >

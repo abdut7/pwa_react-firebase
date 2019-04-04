@@ -13,6 +13,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
 import  fire from './config/firbase'
+import  { Redirect } from 'react-router-dom'
 
 const styles = theme => ({
     main: {
@@ -53,6 +54,7 @@ class SignIn extends React.Component{
         this.state = {value: '',
             regno:'',
             password:'',
+            redirect:false
 
         };
 
@@ -73,8 +75,12 @@ var p=''
             p=snapshot.val();
 
                  if(this.state.password==p){
-                     alert('Log in success ' );
+                   let r=this.state.regno;
                      sessionStorage.setItem('loginstatus', 1);
+                    sessionStorage.setItem('regno',r);
+                   
+                      alert('Log in success ' );
+                      this.setState({ redirect:true})
                  }else{
                      alert('UserName or Password Incorrect' );
                  }
@@ -83,6 +89,13 @@ var p=''
 
 
         event.preventDefault();
+    }
+
+    renderRedirect=()=>{
+       if(this.state.redirect){
+           return <Redirect to='/'/>
+       }
+
     }
     handlePasswordChange(e) {
         this.setState({password: e.target.value});
@@ -95,6 +108,7 @@ var p=''
 
     return (
         <main className={classes.main}>
+        {this.renderRedirect()}
             <CssBaseline />
             <Paper className={classes.paper}>
                 <Avatar className={classes.avatar}>

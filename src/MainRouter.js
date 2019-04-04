@@ -5,6 +5,7 @@ import Home from './Home'
 import Signin from './Signin'
 import Resuts from './Result'
 import  ExamApplication from  './ExamApplication'
+import HallTicket from './HallTicket'
 class MainRouter extends Component {
     // Removes the server-side injected CSS when React component mounts
     componentDidMount() {
@@ -22,8 +23,8 @@ class MainRouter extends Component {
                 <Route path="/result" component={Resuts}/>
                 <Route path="/xamapply" component={ExamApplication}/>
                 <Route path="/signin" component={Signin}/>
-                {/*<PrivateRoute path="/user/edit/:userId" component={EditProfile}/>*/}
-                {/*<Route path="/user/:userId" component={Profile}/>*/}
+                <Route path="/hallticket" component={HallTicket}/>
+             
             </Switch>
 
         </div>)
